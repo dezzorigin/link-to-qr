@@ -5,7 +5,6 @@
 | Field | Nilai |
 |---|---|
 | Nama Proyek | Link To Qr |
-| Repo | dezzorigin/link-to-qr |
 | Tech Stack | Vite |
 | Status | Hampir selesai (beta) |
 | Penanggung Jawab | Nabil Aulia Dika |
@@ -14,7 +13,7 @@
 
 ## 2. Latar Belakang
 
-Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional untuk memastikan ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
+Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional agar ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
 
 ## 3. Masalah yang Diselesaikan
 
@@ -40,14 +39,13 @@ Pengguna membutuhkan solusi digital yang efisien, terukur, dan mudah dipelihara 
 ## 6. Fitur & Persyaratan Fungsional
 
 Struktur proyek (file/direktori utama):
-- .gitignore
-- .oxlintrc.json
-- README.md
-- index.html
-- package-lock.json
-- package.json
 - public/
 - src/
+- LICENSE
+- PRD.md
+- README.md
+- index.html
+- package.json
 - vite.config.js
 
 ## 7. Persyaratan Non-Fungsional
