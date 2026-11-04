@@ -1,16 +1,39 @@
-# React + Vite
+# Link To Qr
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Link To Qr — project by Nabil Aulia Dika (dezzorigin).
 
-Currently, two official plugins are available:
+## Status Proyek
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Hampir selesai (beta)** _(README ada, build artifact ada (sudah di-build))_
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Vite
 
-## Expanding the Oxlint configuration
+## Struktur Proyek
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+.gitignore
+.oxlintrc.json
+README.md
+index.html
+package-lock.json
+package.json
+public/
+src/
+vite.config.js
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Lisensi
+
+MIT — lihat file [LICENSE](./LICENSE).
+
+---
+_Dibuat dan dikelola oleh Nabil Aulia Dika. Kontribusi dan issue welcome._
