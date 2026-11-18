@@ -1,28 +1,47 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { Download, FileCode, Image, Copy, Printer, Check, Sparkles } from 'lucide-react';
+import QRCodeStyling from 'qr-code-styling';
+import {
+  Download,
+  FileCode,
+  Copy,
+  Printer,
+  Check,
+} from 'lucide-react';
+import { buildQrOptions } from '../../utils/buildQrOptions';
 
-export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) {
+export default function ExportControls({
+  qrCodeInstanceRef,
+  qrConfig,
+  currentData,
+  onOpenPrintModal,
+}) {
   const [downloadSize, setDownloadSize] = useState(1024);
   const [copied, setCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [copyError, setCopyError] = useState('');
 
   const triggerConfetti = () => {
     confetti({
       particleCount: 80,
       spread: 70,
-      origin: { y: 0.7 }
+      origin: { y: 0.7 },
     });
   };
 
+  // qr-code-styling's download() only accepts name + extension — the exported
+  // file is always rendered at the instance's own width/height (the preview
+  // is 280px). So a real high-res export renders a throwaway instance at the
+  // requested size with the exact same options as the preview.
   const handleDownload = async (extension) => {
-    if (!qrCodeInstanceRef.current) return;
     setDownloading(true);
     try {
-      // Temporarily update resolution for crisp export
-      await qrCodeInstanceRef.current.download({
+      const hiRes = new QRCodeStyling(
+        buildQrOptions(qrConfig, currentData, downloadSize),
+      );
+      await hiRes.download({
         name: `qr-code-${Date.now()}`,
-        extension: extension
+        extension,
       });
       triggerConfetti();
     } catch (err) {
@@ -34,11 +53,12 @@ export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) 
 
   const handleCopyImage = async () => {
     if (!qrCodeInstanceRef.current) return;
+    setCopyError('');
     try {
       const rawBlob = await qrCodeInstanceRef.current.getRawData('png');
       if (rawBlob) {
         await navigator.clipboard.write([
-          new ClipboardItem({ 'image/png': rawBlob })
+          new ClipboardItem({ 'image/png': rawBlob }),
         ]);
         setCopied(true);
         triggerConfetti();
@@ -46,7 +66,9 @@ export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) 
       }
     } catch (err) {
       console.error('Copy image error:', err);
-      alert('Browser tidak mendukung copy gambar langsung. Silakan gunakan tombol Download PNG.');
+      setCopyError(
+        'Browser tidak mendukung salin gambar langsung. Silakan gunakan tombol Download PNG.',
+      );
     }
   };
 
@@ -62,14 +84,16 @@ export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) 
               type="button"
               onClick={() => setDownloadSize(res)}
               style={{
-                background: downloadSize === res ? 'var(--accent-wa)' : 'transparent',
-                color: downloadSize === res ? '#0b0f19' : 'var(--text-muted)',
+                background:
+                  downloadSize === res ? 'var(--accent-wa)' : 'transparent',
+                color:
+                  downloadSize === res ? '#0b0f19' : 'var(--text-muted)',
                 border: 'none',
                 padding: '3px 8px',
                 borderRadius: '4px',
                 fontSize: '11px',
                 fontWeight: '700',
-                cursor: 'pointer'
+                cursor: 'pointer',
               }}
             >
               {res === 4096 ? '4K HD' : `${res}px`}
@@ -105,10 +129,27 @@ export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) 
           className="btn btn-secondary"
           onClick={handleCopyImage}
         >
-          {copied ? <Check size={16} style={{ color: 'var(--accent-wa)' }} /> : <Copy size={16} />}
+          {copied ? (
+            <Check size={16} style={{ color: 'var(--accent-wa)' }} />
+          ) : (
+            <Copy size={16} />
+          )}
           {copied ? 'Tersalin!' : 'Salin Gambar'}
         </button>
       </div>
+
+      {copyError && (
+        <p
+          role="alert"
+          style={{
+            marginTop: '10px',
+            fontSize: '12px',
+            color: '#fda4af',
+          }}
+        >
+          {copyError}
+        </p>
+      )}
 
       {/* Print Standee / Display Card Button */}
       <button
@@ -118,9 +159,10 @@ export default function ExportControls({ qrCodeInstanceRef, onOpenPrintModal }) 
         style={{
           width: '100%',
           marginTop: '12px',
-          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%)',
+          background:
+            'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%)',
           border: '1px solid rgba(59, 130, 246, 0.3)',
-          color: '#ffffff'
+          color: '#ffffff',
         }}
       >
         <Printer size={16} style={{ color: 'var(--accent-blue)' }} />

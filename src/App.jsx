@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Header from './components/Header';
+import LandingPage from './components/LandingPage';
 import WhatsAppForm from './components/InputForms/WhatsAppForm';
 import UrlForm from './components/InputForms/UrlForm';
 import WifiForm from './components/InputForms/WifiForm';
@@ -37,6 +38,8 @@ import {
 } from 'lucide-react';
 
 export default function App() {
+  // Landing vs Studio view — pengguna baru melihat landing dulu
+  const [view, setView] = useState('landing');
   // Navigation Tabs State
   const [activeTab, setActiveTab] = useState('whatsapp');
   const [currentData, setCurrentData] = useState('https://wa.me/6281234567890');
@@ -151,9 +154,14 @@ export default function App() {
 
   return (
     <div className="app-container">
+      {view === 'landing' ? (
+        <LandingPage onEnterStudio={() => setView('studio')} />
+      ) : (
+        <>
       <Header
         onOpenHistory={() => setIsHistoryModalOpen(true)}
         onResetDefault={handleResetDefault}
+        onBackToLanding={() => setView('landing')}
       />
 
       <div className="main-grid">
@@ -166,42 +174,42 @@ export default function App() {
               className={`tab-btn ${activeTab === 'whatsapp' ? 'active' : ''}`}
               onClick={() => setActiveTab('whatsapp')}
             >
-              <MessageCircle size={16} /> WhatsApp Direct
+              <MessageCircle size={14} /> WhatsApp Direct
             </button>
             <button
               type="button"
-              className={`tab-btn ${activeTab === 'url' ? 'active-blue' : ''}`}
+              className={`tab-btn ${activeTab === 'url' ? 'active' : ''}`}
               onClick={() => setActiveTab('url')}
             >
-              <Globe size={16} /> Website / Link
+              <Globe size={14} /> Website / Link
             </button>
             <button
               type="button"
-              className={`tab-btn ${activeTab === 'wifi' ? 'tab-active' : ''}`}
+              className={`tab-btn ${activeTab === 'wifi' ? 'active' : ''}`}
               onClick={() => setActiveTab('wifi')}
             >
-              <Wifi size={16} /> Wi-Fi Toko/Rumah
+              <Wifi size={14} /> Wi-Fi Toko/Rumah
             </button>
             <button
               type="button"
-              className={`tab-btn ${activeTab === 'vcard' ? 'tab-active' : ''}`}
+              className={`tab-btn ${activeTab === 'vcard' ? 'active' : ''}`}
               onClick={() => setActiveTab('vcard')}
             >
-              <UserCheck size={16} /> Kontak vCard
+              <UserCheck size={14} /> Kontak vCard
             </button>
             <button
               type="button"
-              className={`tab-btn ${activeTab === 'social' ? 'tab-active' : ''}`}
+              className={`tab-btn ${activeTab === 'social' ? 'active' : ''}`}
               onClick={() => setActiveTab('social')}
             >
-              <Share2 size={16} /> Media Sosial
+              <Share2 size={14} /> Media Sosial
             </button>
             <button
               type="button"
-              className={`tab-btn ${activeTab === 'text' ? 'tab-active' : ''}`}
+              className={`tab-btn ${activeTab === 'text' ? 'active' : ''}`}
               onClick={() => setActiveTab('text')}
             >
-              <FileText size={16} /> Teks Bebas
+              <FileText size={14} /> Teks Bebas
             </button>
           </div>
 
@@ -368,6 +376,8 @@ export default function App() {
             {/* Export Toolbar */}
             <ExportControls
               qrCodeInstanceRef={qrCodeInstanceRef}
+              qrConfig={fullCurrentConfig}
+              currentData={currentData}
               onOpenPrintModal={() => setIsPrintModalOpen(true)}
             />
           </div>
@@ -388,6 +398,8 @@ export default function App() {
         currentConfig={fullCurrentConfig}
         onLoadConfig={handleLoadConfig}
       />
+        </>
+      )}
     </div>
   );
 }
