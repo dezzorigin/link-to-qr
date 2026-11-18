@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#25D366"/>
+    </marker>
+    <marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect width="920" height="560" rx="16" fill="#0B0F19"/>
+  <text x="460" y="42" text-anchor="middle" font-size="22" font-weight="800" fill="#F8FAFC">Link to QR — Alur Aplikasi</text>
+  <text x="460" y="66" text-anchor="middle" font-size="13" fill="#94A3B8">SPA React + Vite, 100% client-side — tidak ada server, tidak ada database</text>
+
+  <!-- Row 1: entry -->
+  <g>
+    <rect x="40" y="100" width="150" height="64" rx="12" fill="#16C24C" opacity="0.14" stroke="#25D366" stroke-width="1.5"/>
+    <text x="115" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Pengguna</text>
+    <text x="115" y="146" text-anchor="middle" font-size="12" fill="#94A3B8">buka qr-link.pages.dev</text>
+    <rect x="250" y="100" width="170" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="335" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Landing SaaS</text>
+    <text x="335" y="146" text-anchor="middle" font-size="12" fill="#94A3B8">navbar · hero + QR live</text>
+    <rect x="480" y="100" width="170" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="565" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Studio QR</text>
+    <text x="565" y="146" text-anchor="middle" font-size="12" fill="#94A3B8">App.jsx — semua state</text>
+    <rect x="710" y="100" width="170" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="795" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">6 Form Konten</text>
+    <text x="795" y="146" text-anchor="middle" font-size="12" fill="#94A3B8">WA · URL · Wi-Fi · vCard</text>
+    <line x1="190" y1="132" x2="246" y2="132" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="420" y1="132" x2="476" y2="132" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="650" y1="132" x2="706" y2="132" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- Row 2: styling -->
+  <g>
+    <rect x="40" y="220" width="200" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="140" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Style Studio</text>
+    <text x="140" y="266" text-anchor="middle" font-size="12" fill="#94A3B8">bentuk · warna · logo · preset</text>
+    <rect x="300" y="220" width="320" height="64" rx="12" fill="#25D366" opacity="0.12" stroke="#25D366" stroke-width="1.5"/>
+    <text x="460" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">buildQrOptions(config, data, size)</text>
+    <text x="460" y="266" text-anchor="middle" font-size="12" fill="#94A3B8">satu fungsi — dipakai preview &amp; export</text>
+    <rect x="680" y="220" width="200" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="780" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">qr-code-styling</text>
+    <text x="780" y="266" text-anchor="middle" font-size="12" fill="#94A3B8">render QR · EC level H/Q</text>
+    <line x1="795" y1="164" x2="795" y2="180" stroke="#64748B" stroke-width="2" marker-end="url(#arr-dim)"/>
+    <line x1="795" y1="180" x2="240" y2="180" stroke="#64748B" stroke-width="2"/>
+    <line x1="240" y1="180" x2="240" y2="216" stroke="#64748B" stroke-width="2" marker-end="url(#arr-dim)"/>
+    <line x1="240" y1="252" x2="296" y2="252" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="620" y1="252" x2="676" y2="252" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- Row 3: outputs -->
+  <g>
+    <rect x="40" y="340" width="200" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="140" y="366" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Pratinjau Live</text>
+    <text x="140" y="386" text-anchor="middle" font-size="12" fill="#94A3B8">canvas 280px + badge scan</text>
+    <rect x="300" y="340" width="200" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="400" y="366" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Export</text>
+    <text x="400" y="386" text-anchor="middle" font-size="12" fill="#94A3B8">PNG 512–4096px · SVG</text>
+    <rect x="560" y="340" width="150" height="64" rx="12" fill="#161C2D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="635" y="366" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Standee</text>
+    <text x="635" y="386" text-anchor="middle" font-size="12" fill="#94A3B8">kartu siap cetak</text>
+    <rect x="770" y="340" width="110" height="64" rx="12" fill="#161C2D" stroke="#3B82F6" stroke-opacity="0.6"/>
+    <text x="825" y="366" text-anchor="middle" font-size="14" font-weight="700" fill="#F8FAFC">Riwayat</text>
+    <text x="825" y="386" text-anchor="middle" font-size="12" fill="#94A3B8">localStorage</text>
+    <line x1="780" y1="284" x2="780" y2="300" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="780" y1="300" x2="140" y2="300" stroke="#25D366" stroke-width="2"/>
+    <line x1="140" y1="300" x2="140" y2="336" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="140" y1="404" x2="140" y2="404" stroke="#25D366" stroke-width="2"/>
+    <line x1="240" y1="372" x2="296" y2="372" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="500" y1="372" x2="556" y2="372" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="710" y1="372" x2="766" y2="372" stroke="#3B82F6" stroke-width="2" marker-end="url(#arr-dim)"/>
+  </g>
+
+  <!-- Footer note -->
+  <g>
+    <rect x="40" y="448" width="840" height="64" rx="12" fill="#25D366" opacity="0.07" stroke="#25D366" stroke-opacity="0.35"/>
+    <text x="460" y="474" text-anchor="middle" font-size="13" font-weight="700" fill="#F8FAFC">Kenapa export pernah buram? download() tidak menerima ukuran — v1.1.0 me-render instance baru pada resolusi yang dipilih.</text>
+    <text x="460" y="496" text-anchor="middle" font-size="12" fill="#94A3B8">Pelajaran: preview dan export harus memakai pembangun opsi yang sama (buildQrOptions), bukan logika duplikat.</text>
+  </g>
+</svg>

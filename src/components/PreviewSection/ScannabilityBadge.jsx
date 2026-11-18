@@ -4,6 +4,9 @@ import { CheckCircle2, AlertTriangle, ShieldCheck } from 'lucide-react';
 export default function ScannabilityBadge({ hasLogo, logoSize, bgColor, dotsColor }) {
   const isHighRatio = logoSize > 0.35;
   const isTransparent = bgColor === 'transparent';
+  // Error correction follows QrCanvas: level H when a logo is embedded,
+  // level Q otherwise. The badge must not claim H when there is no logo.
+  const level = hasLogo ? 'H' : 'Q';
 
   return (
     <div className={`scannability-badge ${isHighRatio ? 'scannability-warn' : 'scannability-good'}`}>
@@ -15,7 +18,10 @@ export default function ScannabilityBadge({ hasLogo, logoSize, bgColor, dotsColo
       ) : (
         <>
           <ShieldCheck size={15} />
-          <span>100% Siap Scan! (Error Correction High H - Berfungsi dengan Logo)</span>
+          <span>
+            Siap Scan! (Error Correction {level}
+            {hasLogo ? ' — tetap terbaca dengan logo' : ''})
+          </span>
         </>
       )}
     </div>
