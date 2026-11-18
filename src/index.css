@@ -978,3 +978,21 @@ h1, h2, h3, h4, .font-heading {
     display: none;
   }
 }
+
+/* Header studio: bungkus tombol di layar sempit (sebelumnya .header-actions
+   379px memaksa halaman meluber sampai 652px di viewport 390px) */
+@media (max-width: 640px) {
+  .app-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
+}
